@@ -23,7 +23,7 @@ spring:
   boot:
     admin:
       client:
-        url: http://localhost:9411
+        url: http://localhost:9410
 management:
   endpoints:
     web:
