@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.example.demo.exception.CouponNotFoundException;
+import com.example.demo.exception.EmptyListException;
 import com.example.demo.model.Product;
 import com.example.demo.service.ProductService;
 import com.example.demo.shared.Coupon;
@@ -32,11 +35,12 @@ public class ProductController {
 		this.restTemplate = restTemplate;
 		this.productService = productService;
 	}
-	@GetMapping("/")
-	public ResponseEntity<String> productHome()
-	{
-		return ResponseEntity.ok("product service is up and running on port: "+environment.getProperty("local.server.port"));
-	}
+
+	/*
+	 * @GetMapping("/") public ResponseEntity<String> productHome() { return
+	 * ResponseEntity.ok("product service is up and running on port: "+environment.
+	 * getProperty("local.server.port")); }
+	 */
 	@PostMapping("/")
 	public ResponseEntity<Product> createProduct(@RequestBody Product product) throws CouponNotFoundException
 	{
@@ -47,6 +51,19 @@ public class ProductController {
 		}
 		product.setPrice(product.getPrice().subtract(coupon.getDiscount()));
 		return ResponseEntity.status(HttpStatus.CREATED).body(productService.createProduct(product));
+		
+	}
+	
+	@GetMapping("/")
+	public ResponseEntity<List<Product>> fetchAll()
+	{
+	
+		List<Product> list=productService.fetchAllProducts();
+		if(list.isEmpty())
+		{
+			throw new EmptyListException("product list is empty");
+		}
+		return ResponseEntity.ok(list);
 		
 	}
 
