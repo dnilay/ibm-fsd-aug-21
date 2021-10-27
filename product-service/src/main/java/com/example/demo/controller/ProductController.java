@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.example.demo.exception.CouponNotFoundException;
 import com.example.demo.model.Product;
 import com.example.demo.service.ProductService;
 import com.example.demo.shared.Coupon;
@@ -37,9 +38,13 @@ public class ProductController {
 		return ResponseEntity.ok("product service is up and running on port: "+environment.getProperty("local.server.port"));
 	}
 	@PostMapping("/")
-	public ResponseEntity<Product> createProduct(@RequestBody Product product)
+	public ResponseEntity<Product> createProduct(@RequestBody Product product) throws CouponNotFoundException
 	{
 		Coupon coupon=restTemplate.getForObject("http://localhost:8010/coupons/"+product.getCouponCode(), Coupon.class);
+		if(coupon == null)
+		{
+			throw new CouponNotFoundException("coupon code "+product.getCouponCode()+" is invalid");
+		}
 		product.setPrice(product.getPrice().subtract(coupon.getDiscount()));
 		return ResponseEntity.status(HttpStatus.CREATED).body(productService.createProduct(product));
 		
