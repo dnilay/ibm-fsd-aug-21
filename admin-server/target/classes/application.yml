@@ -1,9 +1,5 @@
 server:
-  port: 9411
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
+  port: 9410
 spring:
   application:
     name: admin-server
