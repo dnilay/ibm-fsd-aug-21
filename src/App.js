@@ -1,6 +1,13 @@
 import ExpenseItem from './components/ExpenseItem';
 
 function App() {
+    const employees=[
+        {
+            id:'1',
+            firstName:'John',
+            dateOfJoining: new Date(2020, 7, 14)
+        }
+    ]
   const expenses = [
     {
       id: 'e1',
