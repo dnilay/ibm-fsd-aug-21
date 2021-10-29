@@ -24,8 +24,15 @@ class GetAll extends Component {
     return (
       <div>
         <h1>Products:</h1>
-        {this.state.products.map(product => <div>{product.id} {product.name} {product.description} {product.price}</div>)}
-      </div>
+        <hr></hr>
+        <table class="table table-dark">
+          <th scope="col">Product ID</th>
+          <th>Product Name</th>
+          <th>Description</th>
+          <th>Product Price</th>
+          {this.state.products.map(product => <tr><td>{product.id}</td> <td> {product.name}</td> <td>{product.description}</td> <td>{product.price}</td></tr>)}
+          </table>
+        </div>
     );
   }
 }
