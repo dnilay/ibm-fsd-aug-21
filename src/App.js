@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {Route,Switch,Link} from "react-router-dom";
+import {Route, Switch, Link, Redirect} from "react-router-dom";
 import GetAll from "./GetAll";
 import Create from "./Create";
 import Get from "./Get";
+import Update from "./Update";
 
 class App extends Component {
     render() {
@@ -22,8 +23,12 @@ class App extends Component {
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="Get">Get</a>
-                            </li>
 
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="Update">Update</a>
+
+                            </li>
                         </ul>
 
                     </div>
@@ -34,6 +39,9 @@ class App extends Component {
                     <Route exact path="/" component={GetAll}/>
                     <Route path="/Create" component={Create}/>
                     <Route path="/Get" component={Get}/>
+
+                    <Route path="/Update" component={Update}/>
+
                 </Switch>
 
 
