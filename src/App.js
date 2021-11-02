@@ -6,6 +6,7 @@ import GetAll from "./GetAll";
 import Create from "./Create";
 import Get from "./Get";
 import Update from "./Update";
+import Delete from "./Delete";
 
 class App extends Component {
     render() {
@@ -29,6 +30,11 @@ class App extends Component {
                                 <a className="nav-link" href="Update">Update</a>
 
                             </li>
+
+                        <li className="nav-item">
+                            <a className="nav-link" href="Delete">Delete</a>
+
+                        </li>
                         </ul>
 
                     </div>
@@ -39,7 +45,7 @@ class App extends Component {
                     <Route exact path="/" component={GetAll}/>
                     <Route path="/Create" component={Create}/>
                     <Route path="/Get" component={Get}/>
-
+                    <Route path="/Delete" component={Delete}/>
                     <Route path="/Update" component={Update}/>
 
                 </Switch>
