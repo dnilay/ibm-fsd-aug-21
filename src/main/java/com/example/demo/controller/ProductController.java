@@ -34,4 +34,9 @@ public class ProductController {
     {
         return ResponseEntity.ok(productService.getProduct(id));
     }
+    @PutMapping("/products")
+    public ResponseEntity<Product> updateProduct(@RequestBody Product product)
+    {
+        return ResponseEntity.ok(productService.updateProduct(product));
+    }
 }

@@ -9,4 +9,5 @@ public interface ProductService {
     public Product createProduct(Product product);
     public List<Product> fetchProduct();
     public Product getProduct(Integer id);
+    public Product updateProduct(Product product);
 }

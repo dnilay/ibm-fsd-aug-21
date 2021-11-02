@@ -33,4 +33,9 @@ public class ProductServiceImpl implements ProductService{
     public Product getProduct(Integer id) {
         return productDao.findById(id).get();
     }
+
+    @Override
+    public Product updateProduct(Product product) {
+        return productDao.save(product);
+    }
 }
