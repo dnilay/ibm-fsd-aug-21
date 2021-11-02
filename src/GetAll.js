@@ -25,8 +25,6 @@ class GetAll extends Component {
   render() {
     return (
       <div>
-        <Create></Create>
-        <Get></Get>
         <h1>Products:</h1>
         <hr></hr>
         <table class="table table-dark">
