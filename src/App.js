@@ -7,7 +7,6 @@ import Create from "./Create";
 import Get from "./Get";
 import Update from "./Update";
 import Delete from "./Delete";
-
 class App extends Component {
     render() {
         return (
