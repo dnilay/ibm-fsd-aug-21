@@ -8,6 +8,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Properties;
+
 @Service
 @EnableTransactionManagement
 public class ProductServiceImpl implements ProductService{
@@ -37,5 +39,12 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public Product updateProduct(Product product) {
         return productDao.save(product);
+    }
+
+    @Override
+    public Product deleteProduct(Integer id) {
+        Product product=productDao.getById(id);
+        productDao.delete(product);
+        return product;
     }
 }

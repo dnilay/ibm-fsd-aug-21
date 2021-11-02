@@ -3,6 +3,7 @@ package com.example.demo.service;
 import com.example.demo.model.Product;
 
 import java.util.List;
+import java.util.Properties;
 
 public interface ProductService {
 
@@ -10,4 +11,5 @@ public interface ProductService {
     public List<Product> fetchProduct();
     public Product getProduct(Integer id);
     public Product updateProduct(Product product);
+    public Product deleteProduct(Integer id);
 }
