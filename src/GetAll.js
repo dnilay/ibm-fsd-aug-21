@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Create from "./Create";
 
 class GetAll extends Component {
 
@@ -23,6 +24,7 @@ class GetAll extends Component {
   render() {
     return (
       <div>
+        <Create></Create>
         <h1>Products:</h1>
         <hr></hr>
         <table class="table table-dark">
