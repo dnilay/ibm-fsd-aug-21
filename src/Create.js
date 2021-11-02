@@ -30,7 +30,9 @@ class Create extends Component {
               price:this.state.price})
               .then(res=>{
                     console.log(res.data);
+                  window.location.reload(false);
                 })
+
   }
 
   render() {
@@ -49,7 +51,7 @@ class Create extends Component {
           PRODUCT PRICE<input class="form-control form-control-sm" onChange={this.onPriceChange}/>
       </div>
       <div class="form-group form-control-sm">
-          <button class="btn btn-primary" onClick={this.createProduct.bind(this)}>Create Product</button>
+          <button class="btn btn-primary" onClick={this.createProduct.bind(this)} >Create Product</button>
       </div>
       </div>
     );
