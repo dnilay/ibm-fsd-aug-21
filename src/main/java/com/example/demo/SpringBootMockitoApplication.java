@@ -25,7 +25,9 @@ public class SpringBootMockitoApplication implements CommandLineRunner{
     @Override
     public void run(String... args) throws Exception {
 
-       // employeeRepository.save(new Employee("John"));
+        employeeRepository.save(new Employee("John"));
         employeeRepository.save(new Employee("Marry"));
+        employeeRepository.save(new Employee("Sachin"));
+        employeeRepository.save(new Employee("Rahul"));
     }
 }
