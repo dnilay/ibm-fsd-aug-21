@@ -51,7 +51,13 @@ public class EmployeeRepositoryIntegrationTest {
     public void when_find_all_returnEmployees()
     {
         List<Employee> list=employeeRepository.findAll();
-        Assert.assertTrue("number of employees are not 3",list.size()==3);
+        Assert.assertTrue("number of employees are not 3",list.size()==4);
     }
 
+    @Test
+    public void when_find_by_id_thenReturn_employee()
+    {
+        Employee found = employeeRepository.getById(1L);
+        Assert.assertNotNull(found);
+    }
 }

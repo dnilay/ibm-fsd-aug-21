@@ -6,4 +6,5 @@ import com.example.demo.entity.Employee;
 public interface EmployeeService {
 
     public Employee getEmployeeByName(String name);
+    public Employee findEmployeeById(Long id);
 }
