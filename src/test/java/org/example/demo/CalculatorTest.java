@@ -3,8 +3,8 @@ package org.example.demo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Calculator Class Test")
 public class CalculatorTest {
@@ -25,5 +25,11 @@ public class CalculatorTest {
         assertEquals(4, calculator.multiply(2, 2),"test message");
         assertTrue(calculator.testPositive(10) < 0, () -> "negative");
 
+    }
+    @Test
+    void exceptionTesting() {
+        Exception exception = assertThrows(ArithmeticException.class, () ->
+                calculator.devide(10,0));
+        assertEquals("/ by zero", exception.getMessage());
     }
 }

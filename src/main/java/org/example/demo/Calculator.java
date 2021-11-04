@@ -16,4 +16,9 @@ public class Calculator {
     {
         return value;
     }
+
+    public Integer devide(Integer a,Integer b)
+    {
+        return a/b;
+    }
 }
