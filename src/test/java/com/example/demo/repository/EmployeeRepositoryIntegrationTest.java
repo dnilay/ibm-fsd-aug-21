@@ -26,14 +26,14 @@ public class EmployeeRepositoryIntegrationTest {
     @Test
     public void whenFindByName_thenReturnEmployee() {
         // given
-        String name = "John";
-        Employee employee = new Employee();
+        String name = "Marry";
+      /*  Employee employee = new Employee();
         employee.setName(name);
         entityManager.persist(employee);
-        entityManager.flush();
+        entityManager.flush();*/
 
         // when
-        Employee found = employeeRepository.findByName(employee.getName());
+        Employee found = employeeRepository.findByName(name);
 
         // then
         Assert.assertNotNull(found);
