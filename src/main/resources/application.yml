@@ -1,0 +1,7 @@
+server:
+    port: 8081
+    h2:
+        console:
+            enabled: true
+            settings:
+                web-allow-others: true
